@@ -2,7 +2,7 @@ package de.reach.api.controller;
 
 import de.reach.BlacklistApplication;
 import de.reach.api.resources.BlackListResponse;
-import de.reach.api.resources.BlacklistModificationResponse;
+import de.reach.api.resources.BlackListModificationResponse;
 import de.reach.persistent.model.IpEntity;
 import de.reach.persistent.repo.IpRepository;
 import org.junit.After;
@@ -50,7 +50,7 @@ public class BlackListControllerTest {
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         HttpEntity entity = new HttpEntity<>(null,headers);
 
-        ResponseEntity<BlacklistModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.GET,entity,BlacklistModificationResponse.class);
+        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.GET,entity,BlackListModificationResponse.class);
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isNotNull();
@@ -64,7 +64,7 @@ public class BlackListControllerTest {
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
 
         HttpEntity entity = new HttpEntity<>(null,headers);
-        ResponseEntity<BlacklistModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.GET,entity,BlacklistModificationResponse.class);
+        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.GET,entity,BlackListModificationResponse.class);
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isNotNull();
@@ -78,7 +78,7 @@ public class BlackListControllerTest {
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         HttpEntity entity = new HttpEntity<>(null,headers);
 
-        ResponseEntity<BlacklistModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.POST,entity,BlacklistModificationResponse.class);
+        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.POST,entity,BlackListModificationResponse.class);
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isNotNull();
@@ -93,7 +93,7 @@ public class BlackListControllerTest {
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         HttpEntity entity = new HttpEntity<>(null,headers);
 
-        ResponseEntity<BlacklistModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.POST,entity,BlacklistModificationResponse.class);
+        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.POST,entity,BlackListModificationResponse.class);
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isNotNull();
@@ -109,7 +109,7 @@ public class BlackListControllerTest {
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         HttpEntity entity = new HttpEntity<>(null,headers);
 
-        ResponseEntity<BlacklistModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.DELETE,entity,BlacklistModificationResponse.class);
+        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.DELETE,entity,BlackListModificationResponse.class);
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isNotNull();
@@ -123,7 +123,7 @@ public class BlackListControllerTest {
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         HttpEntity entity = new HttpEntity<>(null,headers);
 
-        ResponseEntity<BlacklistModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.DELETE,entity,BlacklistModificationResponse.class);
+        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.DELETE,entity,BlackListModificationResponse.class);
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isNotNull();

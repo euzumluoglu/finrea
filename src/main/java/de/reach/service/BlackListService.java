@@ -1,7 +1,7 @@
 package de.reach.service;
 
 import de.reach.api.resources.BlackListResponse;
-import de.reach.api.resources.BlacklistModificationResponse;
+import de.reach.api.resources.BlackListModificationResponse;
 import de.reach.persistent.model.IpEntity;
 import de.reach.persistent.repo.IpRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +16,9 @@ public class BlackListService {
     @Autowired
     private IpRepository ipRepository;
 
-    public BlacklistModificationResponse checkIpIsExist(String ip){
+    public BlackListModificationResponse checkIpIsExist(String ip){
 
-        BlacklistModificationResponse response = new BlacklistModificationResponse();
+        BlackListModificationResponse response = new BlackListModificationResponse();
         response.setIp(ip);
         IpEntity ipEntity = ipRepository.getIpEntityByIpAddress(ip);
 
@@ -31,9 +31,9 @@ public class BlackListService {
         return response;
     }
 
-    public BlacklistModificationResponse addIp(String ip){
+    public BlackListModificationResponse addIp(String ip){
 
-        BlacklistModificationResponse response = new BlacklistModificationResponse();
+        BlackListModificationResponse response = new BlackListModificationResponse();
         response.setIp(ip);
         IpEntity ipEntity = ipRepository.getIpEntityByIpAddress(ip);
         if(ipEntity==null || ipEntity.getId()==null) {
@@ -48,9 +48,9 @@ public class BlackListService {
         return response;
     }
 
-    public BlacklistModificationResponse deleteIp(String ip){
+    public BlackListModificationResponse deleteIp(String ip){
 
-        BlacklistModificationResponse response = new BlacklistModificationResponse();
+        BlackListModificationResponse response = new BlackListModificationResponse();
         response.setIp(ip);
         IpEntity ipEntity = ipRepository.getIpEntityByIpAddress(ip);
         if(ipEntity!=null && ipEntity.getId()!=null){

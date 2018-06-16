@@ -1,7 +1,7 @@
 package de.reach.service;
 
 import de.reach.api.resources.BlackListResponse;
-import de.reach.api.resources.BlacklistModificationResponse;
+import de.reach.api.resources.BlackListModificationResponse;
 import de.reach.persistent.model.IpEntity;
 import de.reach.persistent.repo.IpRepository;
 import org.assertj.core.api.Assertions;
@@ -41,7 +41,7 @@ public class BlacklistServiceTest {
 
         when(ipRepository.getIpEntityByIpAddress(Matchers.anyString())).thenReturn(ipEntity);
 
-        BlacklistModificationResponse response = blackListService.checkIpIsExist("ip");
+        BlackListModificationResponse response = blackListService.checkIpIsExist("ip");
         Assertions.assertThat(response).isNotNull();
         Assertions.assertThat(response.getOperationStatus()).isEqualTo(Boolean.TRUE);
     }
@@ -52,7 +52,7 @@ public class BlacklistServiceTest {
 
         when(ipRepository.getIpEntityByIpAddress(Matchers.anyString())).thenReturn(ipEntity);
 
-        BlacklistModificationResponse response = blackListService.checkIpIsExist("ip");
+        BlackListModificationResponse response = blackListService.checkIpIsExist("ip");
         Assertions.assertThat(response).isNotNull();
         Assertions.assertThat(response.getOperationStatus()).isEqualTo(Boolean.FALSE);
     }
@@ -65,7 +65,7 @@ public class BlacklistServiceTest {
 
         when(ipRepository.getIpEntityByIpAddress(Matchers.anyString())).thenReturn(ipEntity);
 
-        BlacklistModificationResponse response = blackListService.addIp("ip");
+        BlackListModificationResponse response = blackListService.addIp("ip");
         Assertions.assertThat(response).isNotNull();
         Assertions.assertThat(response.getOperationStatus()).isEqualTo(Boolean.FALSE);
     }
@@ -76,7 +76,7 @@ public class BlacklistServiceTest {
 
         when(ipRepository.getIpEntityByIpAddress(Matchers.anyString())).thenReturn(ipEntity);
 
-        BlacklistModificationResponse response = blackListService.addIp("ip");
+        BlackListModificationResponse response = blackListService.addIp("ip");
         Assertions.assertThat(response).isNotNull();
         Assertions.assertThat(response.getOperationStatus()).isEqualTo(Boolean.TRUE);
     }
@@ -89,7 +89,7 @@ public class BlacklistServiceTest {
 
         when(ipRepository.getIpEntityByIpAddress(Matchers.anyString())).thenReturn(ipEntity);
 
-        BlacklistModificationResponse response = blackListService.deleteIp("ip");
+        BlackListModificationResponse response = blackListService.deleteIp("ip");
         Assertions.assertThat(response).isNotNull();
         Assertions.assertThat(response.getOperationStatus()).isEqualTo(Boolean.TRUE);
     }
@@ -100,7 +100,7 @@ public class BlacklistServiceTest {
 
         when(ipRepository.getIpEntityByIpAddress(Matchers.anyString())).thenReturn(ipEntity);
 
-        BlacklistModificationResponse response = blackListService.deleteIp("ip");
+        BlackListModificationResponse response = blackListService.deleteIp("ip");
         Assertions.assertThat(response).isNotNull();
         Assertions.assertThat(response.getOperationStatus()).isEqualTo(Boolean.FALSE);
     }

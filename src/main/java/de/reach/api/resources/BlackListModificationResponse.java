@@ -3,7 +3,7 @@ package de.reach.api.resources;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class BlacklistModificationResponse {
+public class BlackListModificationResponse {
 
 
     private Boolean operationStatus;

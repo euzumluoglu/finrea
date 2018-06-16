@@ -1,7 +1,7 @@
 package de.reach.api.controller;
 
 import de.reach.api.resources.BlackListResponse;
-import de.reach.api.resources.BlacklistModificationResponse;
+import de.reach.api.resources.BlackListModificationResponse;
 import de.reach.service.BlackListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,19 +19,19 @@ public class BlackListController {
     private BlackListService blackListService;
 
     @RequestMapping(value = "/{ip}",method = RequestMethod.POST)
-    public BlacklistModificationResponse addIp(@PathVariable("ip") String ip) {
+    public BlackListModificationResponse addIp(@PathVariable("ip") String ip) {
 
         return blackListService.addIp(ip);
     }
 
     @RequestMapping(value = "/{ip}",method = RequestMethod.GET)
-    public BlacklistModificationResponse getIp(@PathVariable("ip") String ip) {
+    public BlackListModificationResponse getIp(@PathVariable("ip") String ip) {
 
         return blackListService.checkIpIsExist(ip);
     }
 
     @RequestMapping(value = "/{ip}",method = RequestMethod.DELETE)
-    public BlacklistModificationResponse deleteIp(@PathVariable("ip") String ip) {
+    public BlackListModificationResponse deleteIp(@PathVariable("ip") String ip) {
 
         return blackListService.deleteIp(ip);
     }
