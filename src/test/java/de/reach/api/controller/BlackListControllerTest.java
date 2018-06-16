@@ -43,14 +43,16 @@ public class BlackListControllerTest {
 
     @Test
     public void queryExistIp() throws IOException {
-        saveIp("11");
+
+        String ip = "11";
+        saveIp(ip);
 
         MultiValueMap<String, String> headers = new HttpHeaders();
         headers.add(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         HttpEntity entity = new HttpEntity<>(null,headers);
 
-        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.GET,entity,BlackListModificationResponse.class);
+        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange(String.format("/v1/blacklist/%s",ip), HttpMethod.GET,entity,BlackListModificationResponse.class);
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isNotNull();
@@ -59,12 +61,13 @@ public class BlackListControllerTest {
 
     @Test
     public void queryNonExistIp() throws IOException {
+        String ip = "11";
         MultiValueMap<String, String> headers = new HttpHeaders();
         headers.add(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
 
         HttpEntity entity = new HttpEntity<>(null,headers);
-        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.GET,entity,BlackListModificationResponse.class);
+        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange(String.format("/v1/blacklist/%s",ip), HttpMethod.GET,entity,BlackListModificationResponse.class);
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isNotNull();
@@ -73,12 +76,13 @@ public class BlackListControllerTest {
 
     @Test
     public void addNewIp() throws IOException {
+        String ip = "11";
         MultiValueMap<String, String> headers = new HttpHeaders();
         headers.add(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         HttpEntity entity = new HttpEntity<>(null,headers);
 
-        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.POST,entity,BlackListModificationResponse.class);
+        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange(String.format("/v1/blacklist/%s",ip), HttpMethod.POST,entity,BlackListModificationResponse.class);
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isNotNull();
@@ -87,13 +91,14 @@ public class BlackListControllerTest {
 
     @Test
     public void reAddExistIp() throws IOException {
-        saveIp("11");
+        String ip = "11";
+        saveIp(ip);
         MultiValueMap<String, String> headers = new HttpHeaders();
         headers.add(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         HttpEntity entity = new HttpEntity<>(null,headers);
 
-        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.POST,entity,BlackListModificationResponse.class);
+        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange(String.format("/v1/blacklist/%s",ip), HttpMethod.POST,entity,BlackListModificationResponse.class);
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isNotNull();
@@ -102,14 +107,15 @@ public class BlackListControllerTest {
 
     @Test
     public void deleteExistIp() throws IOException {
-        saveIp("11");
+        String ip = "11";
+        saveIp(ip);
 
         MultiValueMap<String, String> headers = new HttpHeaders();
         headers.add(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         HttpEntity entity = new HttpEntity<>(null,headers);
 
-        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.DELETE,entity,BlackListModificationResponse.class);
+        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange(String.format("/v1/blacklist/%s",ip), HttpMethod.DELETE,entity,BlackListModificationResponse.class);
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isNotNull();
@@ -118,12 +124,13 @@ public class BlackListControllerTest {
 
     @Test
     public void deleteNonExistIp() throws IOException {
+        String ip = "11";
         MultiValueMap<String, String> headers = new HttpHeaders();
         headers.add(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         HttpEntity entity = new HttpEntity<>(null,headers);
 
-        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange("/v1/blacklist/11", HttpMethod.DELETE,entity,BlackListModificationResponse.class);
+        ResponseEntity<BlackListModificationResponse> responseEntity = testRestTemplate.exchange(String.format("/v1/blacklist/%s",ip), HttpMethod.DELETE,entity,BlackListModificationResponse.class);
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isNotNull();
