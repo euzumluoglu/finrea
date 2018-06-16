@@ -67,8 +67,10 @@ public class BlackListService {
 
         List<IpEntity> ipEntities =  ipRepository.findAll();
         List<String> ipList = new ArrayList<String>(ipEntities.size());
-        for(IpEntity ipEntity:ipEntities){
-            ipList.add(ipEntity.getIpAddress());
+        if(ipList!=null) {
+            for (IpEntity ipEntity : ipEntities) {
+                ipList.add(ipEntity.getIpAddress());
+            }
         }
         BlackListResponse response = new BlackListResponse();
         response.setBlackList(ipList);

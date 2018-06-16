@@ -36,7 +36,7 @@ public class BlackListController {
         return blackListService.deleteIp(ip);
     }
 
-    @RequestMapping(value = "/all",method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public BlackListResponse getBlackList() {
 
         return blackListService.getList();
