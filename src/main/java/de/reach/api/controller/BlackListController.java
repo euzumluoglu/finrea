@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping(value = "/v1/ip/blacklist")
+@RequestMapping(value = "/v1/blacklist")
 public class BlackListController {
 
 
